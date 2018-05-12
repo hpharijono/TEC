@@ -1,0 +1,102 @@
+﻿<Window x:Class="TemporaryEmploymentCorp.Views.Session.Enrollees.EditEnrolleeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TemporaryEmploymentCorp.Views.Session.Enrollees"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        DataContext="{Binding Path=SessionModule.SelectedEnrollee, Source={StaticResource Locator}}"
+
+        WindowStartupLocation="CenterOwner"
+        Title="Update Payment" Height="300" Width="300">
+    <Grid>
+        <materialDesign:Card
+            Padding="10"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            materialDesign:ShadowAssist.ShadowDepth="Depth3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <materialDesign:ColorZone
+                    Padding="7"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Mode="PrimaryMid">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="WhiteSmoke"
+                            Text="PAYMENTS" />
+                        
+
+                    </Grid>
+                </materialDesign:ColorZone>
+
+                <StackPanel Grid.Row="1" Margin="7,10,0,0"
+                            DataContext="{Binding Path=SessionModule.SelectedEnrollee.EditModel, ValidatesOnNotifyDataErrors=False, Source={StaticResource Locator}}">
+
+
+                    <StackPanel Margin="0,10,0,10">
+                        <TextBlock Style="{StaticResource txtDisplayLabel}" Text="STUDENT" />
+                        <TextBlock Style="{StaticResource txtInfo}"
+                                   DataContext="{Binding Path=SessionModule.SelectedEnrollee.Model.Candidate, Source={StaticResource Locator}, UpdateSourceTrigger=PropertyChanged}">
+                            <Run Text="{Binding Path=CandidateFirstName}"></Run>
+                            <Run Text=" "></Run>
+                            <Run Text="{Binding Path=CandidateLastName}"></Run>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock Style="{StaticResource txtDisplayLabel}" Text="PAYMENT" />
+                        <TextBox Style="{StaticResource tbAdd}"
+                                 Text="{Binding Path=Balance, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    
+                </StackPanel>
+
+                <StackPanel Margin="0,0,0,10"
+                            Grid.Row="2"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                    <Button Width="100"
+                                Margin="3,0,3,0"
+                                Padding="0"
+                            Content="CANCEL"
+                                materialDesign:HintAssist.Hint="Edit selected purok"
+                                Command="{Binding Path=CancelEditCommand}"
+                                Style="{DynamicResource MaterialDesignFlatButton}">
+
+                    </Button>
+
+                    <Button Width="100"
+                                Margin="3,0,3,0"
+                                Padding="0"
+                            Content="SAVE"
+                            
+                                materialDesign:HintAssist.Hint="Edit selected purok"
+                                Command="{Binding Path=SaveEditCommand}"
+                                Style="{DynamicResource MaterialDesignFlatButton}">
+
+                    </Button>
+
+                </StackPanel>
+
+            </Grid>
+
+
+        </materialDesign:Card>
+
+
+    </Grid>
+</Window>

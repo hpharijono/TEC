@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A08519E9-BB7E-4765-BF71-C7F380B88326}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TemporaryEmploymentCorp</RootNamespace>
+    <AssemblyName>TemporaryEmploymentCorp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dragablz, Version=0.0.3.182, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dragablz.0.0.3.182\lib\net45\Dragablz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.3.0.19032, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.3.0.19032, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.MahApps, Version=0.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.MahApps.0.0.8\lib\net45\MaterialDesignThemes.MahApps.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.2.1.750, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.2.1.750\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Nito.AsyncEx, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Concurrent, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Concurrent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Context, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.Context.1.1.0\lib\net46\Nito.AsyncEx.Context.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Enlightenment, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Enlightenment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Tasks, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.AsyncEx.Tasks.1.1.0\lib\net46\Nito.AsyncEx.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nito.Disposables, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nito.Disposables.1.0.0\lib\portable45-net45+win8+wp8+wpa81\Nito.Disposables.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Behaviors\FutureDateValidationRule.cs" />
+    <Compile Include="DataAccess\EF\tecGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tecGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Attendance\AttendanceEditModel.cs" />
+    <Compile Include="Models\Attendance\AttendanceModel.cs" />
+    <Compile Include="Models\Candidate\CandidateEditModel.cs" />
+    <Compile Include="Models\Candidate\CandidateModel.cs" />
+    <Compile Include="Models\Candidate\CandidateSelection.cs" />
+    <Compile Include="Models\CanQual\CanQualEditModel.cs" />
+    <Compile Include="Models\CanQual\CanQualModel.cs" />
+    <Compile Include="Models\CanQual\QualificationSelection.cs" />
+    <Compile Include="Models\Company\CompanyEditModel.cs" />
+    <Compile Include="Models\Company\CompanyModel.cs" />
+    <Compile Include="Models\Course\CourseEditModel.cs" />
+    <Compile Include="Models\Course\CourseModel.cs" />
+    <Compile Include="Models\Editable\IEditableModel.cs" />
+    <Compile Include="Models\Editable\IEditModel.cs" />
+    <Compile Include="Models\Enrollees\EnrolleeEditModel.cs" />
+    <Compile Include="Models\Enrollees\EnrolleeModel.cs" />
+    <Compile Include="Models\History\HistoryEditModel.cs" />
+    <Compile Include="Models\History\HistoryModel.cs" />
+    <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="Models\Opening\OpeningEditModel.cs" />
+    <Compile Include="Models\Opening\OpeningModel.cs" />
+    <Compile Include="Models\Placement\PlacementEditModel.cs" />
+    <Compile Include="Models\Placement\PlacementModel.cs" />
+    <Compile Include="Models\Prerequisites\PrereqEditModel.cs" />
+    <Compile Include="Models\Prerequisites\PrereqModel.cs" />
+    <Compile Include="Models\Prerequisites\PrereqSelection.cs" />
+    <Compile Include="Models\Qualification\QualificationEditModel.cs" />
+    <Compile Include="Models\Qualification\QualificationModel.cs" />
+    <Compile Include="Models\Session\SessionEditModel.cs" />
+    <Compile Include="Models\Session\SessionModel.cs" />
+    <Compile Include="Modules\CandidateModule.cs" />
+    <Compile Include="Modules\CompanyModule.cs" />
+    <Compile Include="Modules\CourseModule.cs" />
+    <Compile Include="Modules\OpeningModule.cs" />
+    <Compile Include="Modules\QualificationModule.cs" />
+    <Compile Include="Modules\SessionModule.cs" />
+    <Compile Include="Modules\ViewModelLocator.cs" />
+    <Compile Include="Reports\Candidate\AllCandidateWindow.xaml.cs">
+      <DependentUpon>AllCandidateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Candidate\SelectedCandidateReportWindow.xaml.cs">
+      <DependentUpon>SelectedCandidateReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Company\AllCompanyReportWindow.xaml.cs">
+      <DependentUpon>AllCompanyReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Company\CompanyOpening.cs" />
+    <Compile Include="Reports\Course\AllCourseReportWindow.xaml.cs">
+      <DependentUpon>AllCourseReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Course\SelectedCourseReportWindow.xaml.cs">
+      <DependentUpon>SelectedCourseReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Opening\AllOpeningsReportWindow.xaml.cs">
+      <DependentUpon>AllOpeningsReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Opening\SelectedOpeningDataSet.cs" />
+    <Compile Include="Reports\Opening\SelectedOpeningReportWindow.xaml.cs">
+      <DependentUpon>SelectedOpeningReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Qualifications\QualificationsReportWindow.xaml.cs">
+      <DependentUpon>QualificationsReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Session\AllSessionReportWindow.xaml.cs">
+      <DependentUpon>AllSessionReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Session\AttendanceReportWindow.xaml.cs">
+      <DependentUpon>AttendanceReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Session\SelectedSesssionReportWindow.xaml.cs">
+      <DependentUpon>SelectedSesssionReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\NullToVisibilityConverter.cs" />
+    <Compile Include="Views\Candidate\AddCandidateWindow.xaml.cs">
+      <DependentUpon>AddCandidateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Candidate\CandidateModuleView.xaml.cs">
+      <DependentUpon>CandidateModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Candidate\CanQual\AddCanQualWindow.xaml.cs">
+      <DependentUpon>AddCanQualWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Candidate\CanQual\CanQualModuleView.xaml.cs">
+      <DependentUpon>CanQualModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Candidate\Display\CandidateInfoView.xaml.cs">
+      <DependentUpon>CandidateInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Candidate\Display\CandidateListView.xaml.cs">
+      <DependentUpon>CandidateListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Candidate\EditCandidateView.xaml.cs">
+      <DependentUpon>EditCandidateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Candidate\Enrolled\EnrolledModuleView.xaml.cs">
+      <DependentUpon>EnrolledModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Candidate\History\AddHistoryWindow.xaml.cs">
+      <DependentUpon>AddHistoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Candidate\History\HistoryModuleView.xaml.cs">
+      <DependentUpon>HistoryModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Company\AddCompanyWindow.xaml.cs">
+      <DependentUpon>AddCompanyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Company\CompanyModuleView.xaml.cs">
+      <DependentUpon>CompanyModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Company\Display\CompanyInfoView.xaml.cs">
+      <DependentUpon>CompanyInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Company\Display\CompanyListView.xaml.cs">
+      <DependentUpon>CompanyListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Company\EditCompanyInfoView.xaml.cs">
+      <DependentUpon>EditCompanyInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Course\AddCourseWindow.xaml.cs">
+      <DependentUpon>AddCourseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Course\CourseModuleView.xaml.cs">
+      <DependentUpon>CourseModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Course\Display\CourseInfoView.xaml.cs">
+      <DependentUpon>CourseInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Course\Display\CourseListView.xaml.cs">
+      <DependentUpon>CourseListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Course\EditCourseView.xaml.cs">
+      <DependentUpon>EditCourseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Course\Prerequisites\AddPrereqWindow.xaml.cs">
+      <DependentUpon>AddPrereqWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Course\Prerequisites\PrereqModuleView.xaml.cs">
+      <DependentUpon>PrereqModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opening\AddOpeningWindow.xaml.cs">
+      <DependentUpon>AddOpeningWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opening\AssignCandidates\AssignCandidatesView.xaml.cs">
+      <DependentUpon>AssignCandidatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opening\Display\OpeningInformationView.xaml.cs">
+      <DependentUpon>OpeningInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opening\Display\OpeningListView.xaml.cs">
+      <DependentUpon>OpeningListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opening\EditOpeningView.xaml.cs">
+      <DependentUpon>EditOpeningView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opening\OpeningModuleView.xaml.cs">
+      <DependentUpon>OpeningModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opening\Placement\PlacementView.xaml.cs">
+      <DependentUpon>PlacementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Qualification\Display\AddQualificationWindow.xaml.cs">
+      <DependentUpon>AddQualificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Qualification\Display\CoursesDeveloped.xaml.cs">
+      <DependentUpon>CoursesDeveloped.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Qualification\Display\QualificationInfoView.xaml.cs">
+      <DependentUpon>QualificationInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Qualification\Display\QualificationListView.xaml.cs">
+      <DependentUpon>QualificationListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Qualification\EditQualificationView.xaml.cs">
+      <DependentUpon>EditQualificationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Qualification\QualificationModuleView.xaml.cs">
+      <DependentUpon>QualificationModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\AddSessionWindow.xaml.cs">
+      <DependentUpon>AddSessionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\Attendance\AddAttendanceWindow.xaml.cs">
+      <DependentUpon>AddAttendanceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\Attendance\AttendanceView.xaml.cs">
+      <DependentUpon>AttendanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\Display\SessionInfoView.xaml.cs">
+      <DependentUpon>SessionInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\Display\SessionListView.xaml.cs">
+      <DependentUpon>SessionListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\EditSessionInfoView.xaml.cs">
+      <DependentUpon>EditSessionInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\Enrollees\AddEnrolleesWindow.xaml.cs">
+      <DependentUpon>AddEnrolleesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\Enrollees\EditEnrolleeView.xaml.cs">
+      <DependentUpon>EditEnrolleeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\Enrollees\EditEnrolleeWindow.xaml.cs">
+      <DependentUpon>EditEnrolleeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\Enrollees\EnrolleesView.xaml.cs">
+      <DependentUpon>EnrolleesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Session\SessionModuleView.xaml.cs">
+      <DependentUpon>SessionModuleView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Helpers\ReportViewer\ReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataAccess\EfDataService.cs" />
+    <Compile Include="DataAccess\EfRepository.cs" />
+    <Compile Include="DataAccess\IDataService.cs" />
+    <Compile Include="DataAccess\IRepository.cs" />
+    <Compile Include="Helpers\ReportViewer\DataSetValuePair.cs" />
+    <Compile Include="Helpers\ReportViewer\ReportView.xaml.cs">
+      <DependentUpon>ReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ReportViewer\ReportViewBuilder.cs" />
+    <Compile Include="Helpers\ReportViewer\SingleInstanceWindowViewer.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Reports\Candidate\AllCandidateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Candidate\SelectedCandidateReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Company\AllCompanyReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Course\AllCourseReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Course\SelectedCourseReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Opening\AllOpeningsReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Opening\SelectedOpeningReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Qualifications\QualificationsReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Session\AllSessionReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Session\AttendanceReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Session\SelectedSesssionReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MyStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ValueConverters\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Candidate\AddCandidateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Candidate\CandidateModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Candidate\CanQual\AddCanQualWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Candidate\CanQual\CanQualModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Candidate\Display\CandidateInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Candidate\Display\CandidateListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Candidate\EditCandidateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Candidate\Enrolled\EnrolledModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Candidate\History\AddHistoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Candidate\History\HistoryModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Company\AddCompanyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Company\CompanyModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Company\Display\CompanyInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Company\Display\CompanyListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Company\EditCompanyInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Course\AddCourseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Course\CourseModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Course\Display\CourseInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Course\Display\CourseListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Course\EditCourseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Course\Prerequisites\AddPrereqWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Course\Prerequisites\PrereqModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Opening\AddOpeningWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Opening\AssignCandidates\AssignCandidatesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Opening\Display\OpeningInformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Opening\Display\OpeningListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Opening\EditOpeningView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Opening\OpeningModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Opening\Placement\PlacementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Qualification\Display\AddQualificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Qualification\Display\CoursesDeveloped.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Qualification\Display\QualificationInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Qualification\Display\QualificationListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Qualification\EditQualificationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Qualification\QualificationModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\AddSessionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\Attendance\AddAttendanceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\Attendance\AttendanceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\Display\SessionInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\Display\SessionListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\EditSessionInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\Enrollees\AddEnrolleesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\Enrollees\EditEnrolleeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\Enrollees\EditEnrolleeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\Enrollees\EnrolleesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Session\SessionModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Candidate\AllCandidateReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Candidate\SelectedCandidateReport.rdlc" />
+    <EmbeddedResource Include="Reports\Company\AllCompanyReport.rdlc" />
+    <EmbeddedResource Include="Reports\Course\AllCourseReport.rdlc" />
+    <EmbeddedResource Include="Reports\Course\SelectedCourseReport.rdlc" />
+    <EmbeddedResource Include="Reports\Opening\AllOpeningsReport.rdlc" />
+    <EmbeddedResource Include="Reports\Opening\SelectedOpeningReport.rdlc" />
+    <EmbeddedResource Include="Reports\Qualifications\QualificationsReport.rdlc" />
+    <EmbeddedResource Include="Reports\Session\AllSessionReport.rdlc" />
+    <EmbeddedResource Include="Reports\Session\AttendanceReport.rdlc" />
+    <EmbeddedResource Include="Reports\Session\SelectedSessionReport.rdlc" />
+    <None Include="DataAccess\EF\EF.Reverse.POCO.Core.ttinclude" />
+    <None Include="DataAccess\EF\EF.Reverse.POCO.ttinclude" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.Candidate.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.CanQualify.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.Company.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.Course.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.Enrollment.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.History.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.Opening.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.Placement.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.Prerequisite.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.Qualification.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.DataAccess.EF.Session.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.Reports.Company.CompanyOpening.datasource" />
+    <None Include="Properties\DataSources\TemporaryEmploymentCorp.Reports.Company.CompanyOpenings.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataAccess\EF\tecGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>tecGenerator.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

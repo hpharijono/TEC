@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="TemporaryEmploymentCorp.Views.Qualification.Display.CoursesDeveloped"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TemporaryEmploymentCorp.Views.Qualification.Display"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" DataContext="{Binding Path=QualificationModule, Source={StaticResource Locator}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <materialDesign:Card
+            Padding="7"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            materialDesign:ShadowAssist.ShadowDepth="Depth3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <materialDesign:ColorZone
+                    Padding="7"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Mode="PrimaryMid">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="WhiteSmoke"
+                            Margin="0,5"
+                            Text="COURSES DEVELOPED" />
+                      
+
+                    </Grid>
+                </materialDesign:ColorZone>
+
+
+
+                <DataGrid Height="200"
+                          ItemsSource="{Binding Path=SelectedQualification.CourseDeveloped}"
+                          Grid.Row="1"                          
+                        Margin="0,3,0,0"
+                          IsReadOnly="True"
+                        AutoGenerateColumns="False"                   
+                    >
+                    <DataGrid.Columns>
+                        <!--<DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked=""></CheckBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>-->
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Path=Model.CourseId}"
+                                                                   Header="ID"
+                                                                   ></materialDesign:MaterialDataGridTextColumn>
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Path=Model.CourseName}"
+                                                                   Header="COURSE"
+                                                                   ></materialDesign:MaterialDataGridTextColumn>
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Path=Model.CourseDescription}"
+                                                                   Header="DESCRIPTION"
+                                                                   ></materialDesign:MaterialDataGridTextColumn>
+
+                    </DataGrid.Columns>
+
+
+                </DataGrid>
+
+
+            </Grid>
+        </materialDesign:Card>
+
+    </Grid>
+</UserControl>

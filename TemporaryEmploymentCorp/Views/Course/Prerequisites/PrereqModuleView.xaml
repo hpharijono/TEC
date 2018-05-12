@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="TemporaryEmploymentCorp.Views.Course.Prerequisites.PrereqModuleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TemporaryEmploymentCorp.Views.Course.Prerequisites"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             DataContext="{Binding Path=CourseModule, Source={StaticResource Locator}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <materialDesign:Card
+            Padding="7"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                  
+                </Grid.RowDefinitions>
+
+                <materialDesign:ColorZone
+                    Padding="7"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Mode="PrimaryMid">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="WhiteSmoke"
+                            Text="PREREQUISITES" />
+                        <StackPanel
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                            <Button
+                                Margin="3,0,3,0"
+                                Padding="0"
+                                Command="{Binding Path=RemovePrereqCommand}"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                ToolTip="Remove selected prerequisite">
+                                <materialDesign:PackIcon
+                                    Width="24"
+                                    Height="24"
+                                    Foreground="{StaticResource SecondaryAccentBrush}"
+                                    Kind="Delete" />
+                            </Button>
+                            <Button
+                                Margin="3,0,3,0"
+                                Padding="0"
+                                Command="{Binding Path=AddPrereqCommand}"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                ToolTip="Add a new prerequisite">
+                                <materialDesign:PackIcon
+                                    Width="24"
+                                    Height="24"
+                                    Foreground="{StaticResource SecondaryAccentBrush}"
+                                    Kind="Plus" />
+                            </Button>
+                        </StackPanel>
+
+                    </Grid>
+                </materialDesign:ColorZone>
+
+       
+
+                <ListBox
+                    Grid.Row="1"
+                    Margin="0,3,0,0"
+                    ItemsSource="{Binding Path=SelectedCourse.Prerequisites}"
+                    SelectedItem="{Binding Path=SelectedPrereq}"
+                    >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Model.Qualification.QualificationCode}"></TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+                </ListBox>
+
+
+            </Grid>
+        </materialDesign:Card>
+
+    </Grid>
+</UserControl>

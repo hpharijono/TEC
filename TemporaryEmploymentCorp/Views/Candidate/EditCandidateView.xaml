@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="TemporaryEmploymentCorp.Views.Candidate.EditCandidateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TemporaryEmploymentCorp.Views.Candidate"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             DataContext="{Binding Path=CandidateModule.SelectedCandidate, Source={StaticResource Locator}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <materialDesign:Card
+            Padding="5"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            materialDesign:ShadowAssist.ShadowDepth="Depth3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <materialDesign:ColorZone
+                    Padding="7"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Mode="PrimaryMid">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="WhiteSmoke"
+                            Text="CANDIDATE INFORMATION" />
+                        <StackPanel
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                            <Button
+                                Margin="3,0,3,0"
+                                Padding="0"
+                                materialDesign:HintAssist.Hint="Edit selected purok"
+                                Command="{Binding Path=CancelEditCommand}"
+                                Style="{DynamicResource MaterialDesignFlatButton}">
+                                <materialDesign:PackIcon
+                                    Width="24"
+                                    Height="24"
+                                    Foreground="{StaticResource SecondaryAccentBrush}"
+                                    Kind="BlockHelper" />
+                            </Button>
+                            
+                            <Button
+                                Margin="3,0,3,0"
+                                Padding="0"
+                                ToolTip="Save edit"
+                                Command="{Binding Path=SaveEditCommand}"
+                                Style="{DynamicResource MaterialDesignFlatButton}">
+                                <materialDesign:PackIcon
+                                    Width="24"
+                                    Height="24"
+                                    Foreground="{StaticResource SecondaryAccentBrush}"
+                                    Kind="ContentSave" />
+                            </Button>
+
+                        </StackPanel>
+
+                    </Grid>
+                </materialDesign:ColorZone>
+
+                <StackPanel Grid.Row="1" Margin="7,10,7,0" DataContext="{Binding Path=CandidateModule.SelectedCandidate.EditModel,ValidatesOnNotifyDataErrors=False, Source={StaticResource Locator}}">
+                    <StackPanel Margin="0,0,0,10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                           
+                            
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="FIRST NAME" Style="{StaticResource txtDisplayLabel}"/>
+                                <TextBox TextWrapping="Wrap" 
+                                     
+                                     Style="{StaticResource tbAdd}" Text="{Binding Path=CandidateFirstName, UpdateSourceTrigger=PropertyChanged}" />
+
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="7,0,7,0">
+                                <TextBlock  Text="MIDDLE NAME" Style="{StaticResource txtDisplayLabel}"/>
+                                <TextBox TextWrapping="Wrap" 
+                                    
+                                     Style="{StaticResource tbAdd}" Text="{Binding Path=CandidateMiddleName, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="LAST NAME" Style="{StaticResource txtDisplayLabel}"/>
+                                <TextBox TextWrapping="Wrap"
+                                     
+                                     Style="{StaticResource tbAdd}" Text="{Binding Path=CandidateLastName, UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,10,0,10">
+                        <TextBlock Text="ADDRESS" Style="{StaticResource txtDisplayLabel}"/>
+                        <TextBox TextWrapping="Wrap" Style="{StaticResource tbAdd}" Text="{Binding Path=CandidateAddress, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    <StackPanel Margin="0,10,0,10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel>
+                                <TextBlock Text="CONTACT NUMBER" Style="{StaticResource txtDisplayLabel}" />
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock VerticalAlignment="Center" Margin="0,0,2,0" Text="+" FontSize="27" Style="{StaticResource txtInfo}"></TextBlock>
+                                    <TextBox Grid.Column="1" Style="{StaticResource tbAdd}" Text="{Binding Path=CandidatePhoneNo, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Margin="7,0,0,0">
+                                <TextBlock Text="BIRTHDATE" Style="{StaticResource txtDisplayLabel}" />
+                                <DatePicker FontSize="27"  SelectedDate="{Binding Path=CandidateBirthdate, UpdateSourceTrigger=PropertyChanged, StringFormat=d}"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+
+
+                </StackPanel>
+
+            </Grid>
+
+
+        </materialDesign:Card>
+
+
+    </Grid>
+</UserControl>

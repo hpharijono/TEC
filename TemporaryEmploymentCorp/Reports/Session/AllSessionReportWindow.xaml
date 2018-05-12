@@ -1,0 +1,127 @@
+﻿<Window x:Class="TemporaryEmploymentCorp.Reports.Session.AllSessionReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TemporaryEmploymentCorp.Reports.Session"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        Title="All Sessions" Height="800" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="7">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <TextBlock Text="SESSIONS" FontWeight="Thin"
+                           Foreground="{StaticResource PrimaryHueDarkBrush}"
+                           FontSize="35"
+                           Margin="0,5,0,0"
+                           HorizontalAlignment="Center" />
+                <TextBlock Text="ALL SESSIONS REPORT" FontWeight="Thin"
+                           Foreground="{StaticResource PrimaryHueDarkBrush}"
+                           FontSize="12"
+
+                           HorizontalAlignment="Center" />
+
+
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="1" Margin="5,50,5,0"
+                        HorizontalAlignment="Stretch">
+
+                <TextBlock Text="FILTER OPTIONS" FontSize="20"
+                           FontWeight="Normal"
+                           Margin="5,0,0,0"
+                           HorizontalAlignment="Center"
+                           Foreground="{StaticResource PrimaryHueDarkBrush}" />
+
+
+                <Grid Margin="0,20,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Foreground="#212121"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Style="{StaticResource txtDisplayLabel}"
+                        Text="By Code" />
+                    <TextBox
+                        Grid.Row="1"
+                        VerticalContentAlignment="Center"
+                        FontSize="16"
+                        Text="{Binding Path=CodeFilter,Delay=500 ,UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+
+                <Grid Margin="0,20,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        Foreground="#212121"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Style="{StaticResource txtDisplayLabel}"
+                        Text="By Course" />
+                    <TextBox
+                        Grid.Row="1"
+                        VerticalContentAlignment="Center"
+                        FontSize="16"
+                        Text="{Binding Path=CourseFilter,Delay=500 ,UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+
+<!--                <Grid Margin="0,20,0,0">-->
+<!--                    <Grid.RowDefinitions>-->
+<!--                        <RowDefinition Height="Auto" />-->
+<!--                        <RowDefinition Height="*" />-->
+<!--                    </Grid.RowDefinitions>-->
+<!---->
+<!--                    <TextBlock-->
+<!--                        Foreground="#212121"-->
+<!--                        VerticalAlignment="Center"-->
+<!--                        FontSize="16"-->
+<!--                        Style="{StaticResource txtDisplayLabel}"-->
+<!--                        Text="By Phone Number" />-->
+<!--                    <TextBox-->
+<!--                        Grid.Row="1"-->
+<!--                        VerticalContentAlignment="Center"-->
+<!--                        FontSize="16"-->
+<!--                        Text="{Binding Path=PhoneNumberFilter,Delay=500 ,UpdateSourceTrigger=PropertyChanged}" />-->
+<!--                </Grid>-->
+
+<!--                <StackPanel Margin="0,20,0,0">-->
+<!--                    <TextBlock Text="FIELDS" FontSize="20"-->
+<!--                           FontWeight="Normal"-->
+<!--                           Margin="5,0,0,0"-->
+<!--                           HorizontalAlignment="Center"-->
+<!--                           Foreground="{StaticResource PrimaryHueDarkBrush}" />-->
+<!--                    <StackPanel>-->
+<!--                        <CheckBox Content="Middle Name" IsChecked="{Binding Path=IsMiddleNameChecked}"></CheckBox>-->
+<!--                        <CheckBox Content="Birthdate" IsChecked="{Binding Path=IsBirthdateChecked}"></CheckBox>-->
+<!--                        <CheckBox Content="Address" IsChecked="{Binding Path=IsAddressChecked}"></CheckBox>-->
+<!--                        <CheckBox Content="Phone Number" IsChecked="{Binding Path=IsPhoneNumberChecked}"></CheckBox>-->
+<!---->
+<!--                    </StackPanel>-->
+<!--                </StackPanel>-->
+
+
+
+
+            </StackPanel>
+        </Grid>
+        <ContentControl x:Name="ReportContainer" Grid.Column="1"></ContentControl>
+    </Grid>
+</Window>

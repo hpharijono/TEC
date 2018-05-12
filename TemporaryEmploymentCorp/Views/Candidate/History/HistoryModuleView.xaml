@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="TemporaryEmploymentCorp.Views.Candidate.History.HistoryModuleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TemporaryEmploymentCorp.Views.Candidate.History"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             DataContext="{Binding Path=CandidateModule, Source={StaticResource Locator}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <materialDesign:Card
+            Padding="7"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <materialDesign:ColorZone
+                    Padding="7"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Mode="PrimaryMid">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="5"
+                            VerticalAlignment="Center"
+                            Foreground="WhiteSmoke"
+                            Text="CANDIDATE HISTORY" />
+<!--                        <StackPanel-->
+<!--                            Grid.Column="1"-->
+<!--                            HorizontalAlignment="Right"-->
+<!--                            Orientation="Horizontal">-->
+<!---->
+<!--                            <Button-->
+<!--                                Margin="3,0,3,0"-->
+<!--                                Padding="0"-->
+<!--                                Command="{Binding Path=PrintPurokCommand}"-->
+<!--                                Style="{DynamicResource MaterialDesignFlatButton}"-->
+<!--                                ToolTip="Print purok">-->
+<!--                                <materialDesign:PackIcon-->
+<!--                                    Width="24"-->
+<!--                                    Height="24"-->
+<!--                                    Foreground="{StaticResource SecondaryAccentBrush}"-->
+<!--                                    Kind="Printer" />-->
+<!--                            </Button>-->
+<!---->
+<!--                            <Button-->
+<!--                                Margin="3,0,3,0"-->
+<!--                                Padding="0"-->
+<!--                                Command="{Binding Path=RemoveHistoryCommand}"-->
+<!--                                Style="{DynamicResource MaterialDesignFlatButton}"-->
+<!--                                ToolTip="Remove selected purok">-->
+<!--                                <materialDesign:PackIcon-->
+<!--                                    Width="24"-->
+<!--                                    Height="24"-->
+<!--                                    Foreground="{StaticResource SecondaryAccentBrush}"-->
+<!--                                    Kind="Delete" />-->
+<!--                            </Button>-->
+<!---->
+<!--                            <Button-->
+<!--                                Margin="3,0,3,0"-->
+<!--                                Padding="0"-->
+<!--                                Command="{Binding Path=AddHistoryCommand}"-->
+<!--                                Style="{DynamicResource MaterialDesignFlatButton}"-->
+<!--                                ToolTip="Add a new purok">-->
+<!--                                <materialDesign:PackIcon-->
+<!--                                    Width="24"-->
+<!--                                    Height="24"-->
+<!--                                    Foreground="{StaticResource SecondaryAccentBrush}"-->
+<!--                                    Kind="Plus" />-->
+<!--                            </Button>-->
+<!--                        </StackPanel>-->
+
+                    </Grid>
+                </materialDesign:ColorZone>
+
+         
+
+                <DataGrid
+                    AutoGenerateColumns="False"
+                    Grid.Row="2"
+                    Background="Transparent"
+                    IsReadOnly="True"
+                    Margin="0,3,0,0"
+                    ItemsSource="{Binding Path=SelectedCandidate.History}"
+                    SelectedItem="{Binding Path=SelectedHistory}">
+                    <DataGrid.Columns>
+                       
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Path=Model.HistoryDescription}"
+                                                                   Header="Description"
+                                                                   ></materialDesign:MaterialDataGridTextColumn>
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Path=Model.DateStarted, StringFormat=d MMMM yyyy}"
+                                                                   Header="Date Started"
+                                                                   ></materialDesign:MaterialDataGridTextColumn>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding Path=Model.DateEnded, StringFormat=d MMMM yyyy}"
+                                                                   Header="Date Ended"
+                                                                   ></materialDesign:MaterialDataGridTextColumn>
+
+
+                    </DataGrid.Columns>
+<!--                    <ListBox.ItemTemplate>-->
+<!--                        <DataTemplate>-->
+<!--                            <materialDesign:TransitioningContent-->
+<!--                                Opacity="0"-->
+<!--                                OpeningEffectsOffset="{materialDesign:IndexedItemOffsetMultiplierExtension 0:0:0.02}"-->
+<!--                                RunHint="Loaded">-->
+<!--                                <materialDesign:TransitioningContent.OpeningEffects>-->
+<!--                                    <materialDesign:TransitionEffect Kind="SlideInFromLeft" />-->
+<!--                                    <materialDesign:TransitionEffect Kind="FadeIn" />-->
+<!--                                </materialDesign:TransitioningContent.OpeningEffects>-->
+<!--                                <StackPanel Orientation="Horizontal">-->
+<!--                                    <TextBlock Foreground="Black" Text="{Binding Path=Model.HistoryDescription}" />-->
+<!--                                </StackPanel>-->
+<!---->
+<!--                            </materialDesign:TransitioningContent>-->
+<!--                        </DataTemplate>-->
+<!--                    </ListBox.ItemTemplate>-->
+                </DataGrid>
+
+
+            </Grid>
+        </materialDesign:Card>
+
+    </Grid>
+</UserControl>

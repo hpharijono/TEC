@@ -1,0 +1,106 @@
+﻿<Window x:Class="TemporaryEmploymentCorp.Views.Company.AddCompanyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TemporaryEmploymentCorp.Views.Company"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        MinWidth="300"
+        Background="WhiteSmoke"
+        MinHeight="450"
+        WindowStyle="None"
+        WindowStartupLocation="CenterOwner"
+        DataContext="{Binding Path=CompanyModule.NewCompany, Source={StaticResource Locator}}"
+        Title="AddCompanyWindow" Height="450" Width="300">
+    <materialDesign:Card
+        Padding="7,10"
+        Background="WhiteSmoke"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        materialDesign:ShadowAssist.ShadowDepth="Depth3">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <materialDesign:ColorZone
+                Margin="3"
+                Padding="7,10"
+                CornerRadius="3"
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                Mode="PrimaryMid">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Foreground="WhiteSmoke"
+                        Text="ADD COMPANY" />
+
+
+                </Grid>
+            </materialDesign:ColorZone>
+
+            <StackPanel Grid.Row="1" Margin="3,13">
+
+
+                <StackPanel Margin="0,0,0,15">
+                    <TextBlock Style="{StaticResource txtDisplayLabel}" Text="NAME" />
+                    <TextBox Margin="0"
+                        Style="{StaticResource tbAdd}"
+                        Text="{Binding Path=CompanyName, UpdateSourceTrigger=PropertyChanged}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+
+                
+
+                <StackPanel Margin="0,10,0,15">
+                    <TextBlock Style="{StaticResource txtDisplayLabel}" Text="ADDRESS" />
+                    <TextBox Style="{StaticResource tbAdd}"
+                             Text="{Binding Path=CompanyAddress, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="0"
+                             />
+                </StackPanel>
+
+                <StackPanel Margin="0,10,0,15">
+                    <TextBlock Style="{StaticResource txtDisplayLabel}" Text="CONTACT NUMBER" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource txtInfo}" Text="+" VerticalAlignment="Center" FontSize="27"></TextBlock>
+                        <TextBox Margin="0" Grid.Column="1"
+                        Style="{StaticResource tbAdd}"
+                        Text="{Binding Path=CompanyPhoneNo, UpdateSourceTrigger=PropertyChanged}"
+                        TextWrapping="Wrap" />
+                    </Grid>
+                    
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    Width="90"
+                    Margin="3"
+                    Command="{Binding Path=CompanyModule.CancelCompanyCommand, Source={StaticResource Locator}}"
+                    Content="CANCEL" />
+                <Button
+                    Width="90"
+                    Margin="3"
+                    Command="{Binding Path=CompanyModule.SaveCompanyCommand, Source={StaticResource Locator}}"
+                    Content="SAVE" />
+            </StackPanel>
+
+        </Grid>
+
+
+    </materialDesign:Card>
+</Window>

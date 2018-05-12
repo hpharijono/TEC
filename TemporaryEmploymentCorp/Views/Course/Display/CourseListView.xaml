@@ -1,0 +1,160 @@
+﻿<UserControl x:Class="TemporaryEmploymentCorp.Views.Course.Display.CourseListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TemporaryEmploymentCorp.Views.Course.Display"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             DataContext="{Binding Path=CourseModule, Source={StaticResource Locator}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <materialDesign:Card
+            Padding="7"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <materialDesign:ColorZone
+                    Padding="7"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                    Mode="PrimaryMid">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Foreground="WhiteSmoke"
+                            Text="LIST OF COURSES" />
+                        <StackPanel
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                            <Button
+                                Margin="3,0,3,0"
+                                Padding="0"
+                                Command="{Binding Path=PrintCoursesCommand}"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                ToolTip="Print all courses">
+                                <materialDesign:PackIcon
+                                    Width="24"
+                                    Height="24"
+                                    Foreground="{StaticResource SecondaryAccentBrush}"
+                                    Kind="Printer" />
+                            </Button>
+
+                            <Button
+                                Margin="3,0,3,0"
+                                Padding="0"
+                                Command="{Binding Path=DeleteCourseCommand}"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                ToolTip="Remove selected course.">
+                                <materialDesign:PackIcon
+                                    Width="24"
+                                    Height="24"
+                                    Foreground="{StaticResource SecondaryAccentBrush}"
+                                    Kind="Delete" />
+                            </Button>
+
+                            <Button
+                                Margin="3,0,3,0"
+                                Padding="0"
+                                Command="{Binding Path=AddCourseCommand}"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                ToolTip="Add a new course.">
+                                <materialDesign:PackIcon
+                                    Width="24"
+                                    Height="24"
+                                    Foreground="{StaticResource SecondaryAccentBrush}"
+                                    Kind="Plus" />
+                            </Button>
+                        </StackPanel>
+
+                    </Grid>
+                </materialDesign:ColorZone>
+
+                <Grid Grid.Row="1" Margin="0,3,0,3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+
+
+                    <TextBox
+                        Grid.Column="1"
+                        Padding="3,0,0,0"
+                        VerticalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Text="{Binding Path=SearchCourse, UpdateSourceTrigger=PropertyChanged}"
+                        materialDesign:HintAssist.Hint=" Search course" />
+
+                    <Button
+                        x:Name="SearchButton"
+                        Grid.Column="0"
+                        Margin="0,0,3,0"
+                        Padding="0"
+                        Command="{Binding SearchCommand}"
+                        CommandParameter="{Binding ElementName=SearchBox, Path=Text}"
+                        Style="{DynamicResource MaterialDesignFlatButton}">
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            Foreground="Gray"
+                            Kind="Magnify"
+                            Opacity=".56" />
+                    </Button>
+
+                    <ProgressBar Grid.Row="2"
+                                 Margin="2"
+                                 Grid.ColumnSpan="2"
+                                 Maximum="100"
+                                 Minimum="0"
+                                 Style="{StaticResource {x:Type ProgressBar}}"
+                                 Visibility="{Binding Path=CourseModule.CourseLoading.IsCompleted,
+                                                      Converter={StaticResource BooleanToVisibilityConverter},
+                                                      Source={StaticResource Locator}}"></ProgressBar>
+
+                </Grid>
+
+                <ListBox
+                    Grid.Row="2"
+                    Margin="0,3,0,0"
+                    ItemsSource="{Binding Path=Courses}"
+                    SelectedItem="{Binding Path=SelectedCourse}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <materialDesign:TransitioningContent
+                                Opacity="0"
+                                OpeningEffectsOffset="{materialDesign:IndexedItemOffsetMultiplierExtension 0:0:0.02}"
+                                RunHint="Loaded">
+                                <materialDesign:TransitioningContent.OpeningEffects>
+                                    <materialDesign:TransitionEffect Kind="SlideInFromLeft" />
+                                    <materialDesign:TransitionEffect Kind="FadeIn" />
+                                </materialDesign:TransitioningContent.OpeningEffects>
+                                <TextBlock Foreground="Black" Text="{Binding Path=Model.CourseName}" />
+                            </materialDesign:TransitioningContent>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+
+            </Grid>
+        </materialDesign:Card>
+
+    </Grid>
+</UserControl>
